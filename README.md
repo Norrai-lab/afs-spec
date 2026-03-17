@@ -10,25 +10,22 @@
 
 ## Why AFS?
 
-Modern AI agents are forced to interact with software built for humans — through screenshots, simulated clicks, and brittle browser automation. Meanwhile, every SaaS product ships its own siloed AI assistant, creating fragmented context and inability to collaborate across applications. Tool-driven approaches like MCP suffer from tool bloat that compresses the agent's reasoning space. And agent frameworks like OpenClaw lack purpose-built tools, forcing system-level permissions with uncontrollable blast radius.
+Modern AI agents are forced to interact with software built for humans — through screenshots, simulated clicks, and brittle browser automation. Meanwhile, every SaaS product ships its own siloed AI assistant, creating fragmented context, redundant billing, and vendor lock-in.
 
-AFS flips the model: instead of making AI adapt to human software, AFS defines how software should be designed from the ground up to be a good tool for AI agents.
+AFS flips the model: instead of "software with an AI inside," AFS enables **"AI with software at its fingertips."** AI is the orchestration hub; software returns to its essence as a tool.
 
-### The four dilemmas AFS solves
+### The problem AFS solves
 
-- **Screen-level automation is expensive and unreliable** — AI wastes massive tokens processing screenshots; page timeouts and layout changes cause frequent failures.
-- **Embedded AI assistants are siloed** — ten apps means ten separate AIs that can't share context or collaborate.
-- **MCP tool explosion** — exposing all interfaces at once bloats the context, degrades reasoning accuracy, and increases latency.
-- **Agent frameworks lack security boundaries** — platforms like OpenClaw must grant system-level permissions, making the blast radius uncontrollable.
+- **Screen-level automation is expensive and unreliable** — AI wastes millions of tokens processing screenshots and simulating clicks.
+- **Embedded AI assistants are siloed** — ten apps means ten separate AIs that can't share context.
+- **Agent frameworks lack purpose-built tools** — platforms like OpenClaw burn tokens and introduce security disasters because they must use human interfaces and system-level permissions.
 
 ### What AFS provides
 
-- **Three-layer tool architecture** — API (core logic) + CLI (agent operation channel) + GUI (optional human observation channel), sharing one set of core logic.
-- **skill.md** — A standardized, machine-readable capability manifest with progressive disclosure (L0–L3, load only what you need).
-- **Three compliance levels** — AFS-1 (Callable), AFS-2 (Secure & Controllable), AFS-3 (Supervisable), adoptable incrementally.
-- **Security by architecture** — Process-level isolation, risk annotation, CLI parameter validation, and auditability.
-- **Complementary to MCP** — AFS defines how tools should be designed; MCP defines how agents and tools communicate. Best practice is to adopt both.
-- **Agent-agnostic** — Works with OpenClaw, Claude Code, or any AI Agent that can read skill.md and execute CLI commands.
+- **skill.md** — A standardized, machine-readable capability manifest with progressive disclosure (load only what you need, when you need it).
+- **Four-layer architecture** — Interface, Documentation, Efficiency, and Security layers that can be adopted incrementally.
+- **MCP-compatible** — Every AFS tool is also a valid MCP server, ensuring ecosystem compatibility.
+- **Agent-agnostic** — Works with OpenClaw, Claude Code, or any AI Agent that can read skill.md and call APIs.
 
 ---
 
@@ -41,10 +38,9 @@ afs-spec/
 ├── LICENSE-CC-BY-4.0                  ← CC BY 4.0 (documentation)
 ├── LICENSE-MIT                        ← MIT (code)
 ├── whitepaper/
-│   ├── afs-whitepaper-eng.md          ← Whitepaper v0.2 (English)
-│   └── afs-whitepaper-zh.md           ← Whitepaper v0.2 (Chinese)
+│   └── afs-whitepaper-v0.1.md         ← Vision, rationale, and competitive analysis
 ├── spec/
-│   └── overview.md                    ← Technical specification
+│   └── overview.md                    ← Technical specification (four layers)
 └── examples/
     └── afs-email/
         └── skill.md                   ← Worked example: AFS Email skill
@@ -52,15 +48,15 @@ afs-spec/
 
 | Directory | Purpose |
 |-----------|---------|
-| `whitepaper/` | Narrative documents explaining the motivation, design philosophy, technical architecture, and security model of AFS. |
-| `spec/` | Normative technical specification. |
+| `whitepaper/` | Narrative documents explaining the motivation, core principles, and high-level architecture of AFS. |
+| `spec/` | Normative technical specification. Defines the four AFS layers and their rules. |
 | `examples/` | Concrete, annotated examples of AFS-compliant skill definitions. |
 
 ---
 
 ## Quick Start
 
-1. **Read the whitepaper** — [`whitepaper/afs-whitepaper-eng.md`](whitepaper/afs-whitepaper-eng.md) for the full vision and motivation ([中文版](whitepaper/afs-whitepaper-zh.md)).
+1. **Read the whitepaper** — [`whitepaper/afs-whitepaper-v0.1.md`](whitepaper/afs-whitepaper-v0.1.md) for the full vision and motivation.
 2. **Read the spec** — [`spec/overview.md`](spec/overview.md) for the technical specification.
 3. **See an example** — [`examples/afs-email/skill.md`](examples/afs-email/skill.md) for a worked skill definition.
 
@@ -81,10 +77,8 @@ AFS is an open project and welcomes contributions of all kinds:
 | Milestone | Status |
 |-----------|--------|
 | v0.1 — Whitepaper + repository scaffold | ✅ Complete |
-| v0.2 — Whitepaper v0.2 (three-layer tool architecture, security model, compliance levels) | ✅ Complete |
-| v0.3 — Normative spec alignment + JSON Schema for skill definitions | 🟡 In progress |
-| AFS Software Marketplace — open tool marketplace with security review and compliance verification | ⬜ Planned |
-| AFS Shell — unified CLI operating environment for AI agents | ⬜ Planned |
+| v0.2 — Normative spec for Interface & Documentation layers | 🟡 In progress |
+| v0.3 — Efficiency & Security layers + JSON Schema for skill definitions | ⬜ Planned |
 | v1.0 — Stable specification, reference validator, and official examples | ⬜ Planned |
 
 ---
